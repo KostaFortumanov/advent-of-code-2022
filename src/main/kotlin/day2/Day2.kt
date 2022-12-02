@@ -3,8 +3,8 @@ package day2
 import readFileLines
 
 const val WIN_POINTS: Int = 6
-const val LOSE_POINTS: Int = 6
-const val DRAW_POINTS: Int = 6
+const val LOSE_POINTS: Int = 0
+const val DRAW_POINTS: Int = 3
 
 fun main() {
     val lines = readFileLines("input_2.txt")
