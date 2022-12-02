@@ -2,6 +2,10 @@ package day2
 
 import readFileLines
 
+const val WIN_POINTS: Int = 6
+const val LOSE_POINTS: Int = 6
+const val DRAW_POINTS: Int = 6
+
 fun main() {
     val lines = readFileLines("input_2.txt")
 
@@ -14,9 +18,9 @@ fun main() {
 
 private fun part1(input: List<Pair<Shape, Shape>>) = input.fold(0) { acc, it ->
     val roundPoints = when {
-        it.second.winAgainst == it.first.toString() -> 6
-        it.second.loseAgainst == it.first.toString() -> 0
-        else -> 3
+        it.second.winAgainst == it.first.toString() -> WIN_POINTS
+        it.second.loseAgainst == it.first.toString() -> LOSE_POINTS
+        else -> DRAW_POINTS
     }
 
     acc + roundPoints + it.second.points
@@ -24,9 +28,9 @@ private fun part1(input: List<Pair<Shape, Shape>>) = input.fold(0) { acc, it ->
 
 private fun part2(input: List<Pair<Shape, String>>) = input.fold(0) { acc, it ->
     val points = when (it.second) {
-        "X" -> Shape.valueOf(it.first.winAgainst).points
-        "Z" -> Shape.valueOf(it.first.loseAgainst).points + 6
-        else -> it.first.points + 3
+        "X" -> Shape.valueOf(it.first.winAgainst).points + LOSE_POINTS
+        "Z" -> Shape.valueOf(it.first.loseAgainst).points + WIN_POINTS
+        else -> it.first.points + DRAW_POINTS
     }
 
     acc + points
