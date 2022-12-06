@@ -59,5 +59,4 @@ private fun movesFromMovesString(movesString: String) =
             .toList()
     }.map { (amount, from, to) -> Move(amount, from - 1, to - 1) }
 
-
 private fun List<List<Char>>.transpose() = List(this[0].size) { i -> List(this.size) { j -> this[j][i] } }
