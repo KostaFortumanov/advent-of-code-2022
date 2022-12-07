@@ -20,10 +20,7 @@ private fun part2(sizes: List<Int>): Int {
 }
 
 private fun getDirectorySizes(rootDirectory: Directory): List<Int> =
-    rootDirectory.directories.fold(mutableListOf<Int>()) { acc, directory ->
-        acc.addAll(getDirectorySizes(directory))
-        acc
-    } + rootDirectory.size
+    rootDirectory.directories.fold(listOf<Int>()) { acc, dir -> acc + getDirectorySizes(dir) } + rootDirectory.size
 
 private fun generateFileSystemTree(input: List<String>): Directory {
     val root = Directory("/")
