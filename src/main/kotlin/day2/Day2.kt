@@ -7,7 +7,7 @@ const val LOSE_POINTS: Int = 0
 const val DRAW_POINTS: Int = 3
 
 fun main() {
-    val lines = readFileLines("input_2.txt")
+    val lines = readFileLines(2)
 
     val input1 = lines.mapInputPart1()
     println(part1(input1))

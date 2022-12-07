@@ -3,7 +3,7 @@ package day3
 import readFileLines
 
 fun main() {
-    val input = readFileLines("input_3.txt")
+    val input = readFileLines(3)
 
     println(part1(input))
     println(part2(input))

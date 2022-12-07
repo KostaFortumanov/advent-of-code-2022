@@ -1,3 +1,3 @@
 import java.io.File
 
-fun readFileLines(fileName: String): List<String> = File({}.javaClass.getResource(fileName)!!.path).readLines()
+fun readFileLines(day: Int): List<String> = File({}.javaClass.getResource("input_$day.txt")!!.path).readLines()

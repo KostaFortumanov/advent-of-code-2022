@@ -3,7 +3,7 @@ package day1
 import readFileLines
 
 fun main() {
-    val input = readFileLines("input_1.txt").mapInput()
+    val input = readFileLines(1).mapInput()
 
     val runningReduce = input.runningReduce { acc, num ->
         if (num == 0) {

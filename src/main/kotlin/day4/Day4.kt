@@ -4,7 +4,7 @@ import readFileLines
 import kotlin.math.min
 
 fun main() {
-    val sectionPairs = readFileLines("input_4.txt").mapInput()
+    val sectionPairs = readFileLines(4).mapInput()
 
     println(part1(sectionPairs))
     println(part2(sectionPairs))

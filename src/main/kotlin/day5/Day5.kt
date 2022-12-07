@@ -3,7 +3,7 @@ package day5
 import readFileLines
 
 fun main() {
-    val (crateString, movesString) = readFileLines("input_5.txt")
+    val (crateString, movesString) = readFileLines(5)
         .joinToString("\n")
         .split("\n\n")
 
