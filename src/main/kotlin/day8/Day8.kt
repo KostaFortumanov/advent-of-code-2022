@@ -43,7 +43,7 @@ private fun scenicScore(grid: List<List<Int>>, row: Int, col: Int): Int {
     val isValid = { r: Int, c: Int -> r in grid.indices && c in grid[r].indices }
 
     var scenicScore = 1
-    for ((xa, ya) in steps) {
+    steps.forEach { (xa, ya) ->
         var newRow = row + xa
         var newCol = col + ya
         var count = 0
