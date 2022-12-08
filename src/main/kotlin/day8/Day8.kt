@@ -10,12 +10,14 @@ fun main() {
     println(part2(input))
 }
 
-private fun part1(grid: List<List<Int>>) =
-    grid.flatMapIndexed { rowIndex, row ->
+private fun part1(grid: List<List<Int>>): Int {
+    val transposedGrid = grid.transpose()
+    return grid.flatMapIndexed { rowIndex, row ->
         row.filterIndexed { colIndex, _ ->
-            isVisible(grid, rowIndex, colIndex)
+            isVisible(grid, transposedGrid, rowIndex, colIndex)
         }
     }.size
+}
 
 private fun part2(grid: List<List<Int>>) =
     grid.flatMapIndexed { rowIndex, row ->
@@ -24,10 +26,10 @@ private fun part2(grid: List<List<Int>>) =
         }
     }.max()
 
-private fun isVisible(grid: List<List<Int>>, row: Int, col: Int): Boolean {
+private fun isVisible(grid: List<List<Int>>, transposedGrid: List<List<Int>>, row: Int, col: Int): Boolean {
     val tree = grid[row][col]
     val (left, right) = grid[row].split(col)
-    val (top, bottom) = grid.transpose()[col].split(row)
+    val (top, bottom) = transposedGrid[col].split(row)
 
     return tree tallerThanAll left || tree tallerThanAll right || tree tallerThanAll top || tree tallerThanAll bottom
 }
