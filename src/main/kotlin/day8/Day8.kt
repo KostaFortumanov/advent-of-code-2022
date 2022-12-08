@@ -34,8 +34,7 @@ private fun isVisible(grid: List<List<Int>>, transposedGrid: List<List<Int>>, ro
     return tree tallerThanAll left || tree tallerThanAll right || tree tallerThanAll top || tree tallerThanAll bottom
 }
 
-private fun List<Int>.split(splitIndex: Int) =
-    this.filterIndexed { index, _ -> index < splitIndex } to this.filterIndexed { index, _ -> index > splitIndex }
+private fun List<Int>.split(splitIndex: Int) = this.subList(0, splitIndex) to this.subList(splitIndex + 1, this.size)
 
 private infix fun Int.tallerThanAll(list: List<Int>) = list.all { this > it }
 
