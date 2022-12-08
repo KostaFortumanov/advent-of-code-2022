@@ -1,6 +1,7 @@
 package day5
 
 import readFileLines
+import transpose
 
 fun main() {
     val (crateString, movesString) = readFileLines(5)
@@ -58,5 +59,3 @@ private fun movesFromMovesString(movesString: String) =
             .map { it.value.toInt() }
             .toList()
     }.map { (amount, from, to) -> Move(amount, from - 1, to - 1) }
-
-private fun List<List<Char>>.transpose() = List(this[0].size) { i -> List(this.size) { j -> this[j][i] } }
