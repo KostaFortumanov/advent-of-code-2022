@@ -1,4 +1,4 @@
-package day9
+package day09
 
 import readFileLines
 import kotlin.math.abs
