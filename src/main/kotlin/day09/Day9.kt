@@ -31,8 +31,7 @@ private fun tailNumPositions(input: List<String>, ropeLength: Int): Int {
                 val distanceX = tails[tailIndex].x - tails[tailIndex + 1].x
                 val distanceY = tails[tailIndex].y - tails[tailIndex + 1].y
                 if (abs(distanceX) >= 2 || abs(distanceY) >= 2) {
-                    tails[tailIndex + 1] =
-                        tails[tailIndex + 1] + Position(distanceX.inRange(-1, 1), distanceY.inRange(-1, 1))
+                    tails[tailIndex + 1] += Position(distanceX.inRange(-1, 1), distanceY.inRange(-1, 1))
                 }
             }
             tailPositions.add(tails.last())
