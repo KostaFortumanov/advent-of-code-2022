@@ -10,13 +10,12 @@ fun main() {
     println(part2(input))
 }
 
-private fun part1(input: List<List<Char>>) =
-    positions(input) { it == 'S' }
-        .map { (startRow, startCol) -> distance(input, startRow, startCol) }
-        .first()
+private fun part1(input: List<List<Char>>) = minDistance(input) { it == 'S' }
 
-private fun part2(input: List<List<Char>>) =
-    positions(input) { it == 'S' || it == 'a' }
+private fun part2(input: List<List<Char>>) = minDistance(input) { it == 'S' || it == 'a' }
+
+private fun minDistance(input: List<List<Char>>, startPosition: (c: Char) -> Boolean) =
+    positions(input, startPosition)
         .map { (startRow, startCol) -> distance(input, startRow, startCol) }
         .filter { it != 0 }
         .min()
@@ -49,10 +48,10 @@ private fun distance(input: List<List<Char>>, startRow: Int, startCol: Int): Int
     return grid[endRow][endCol].distance
 }
 
-private fun positions(input: List<List<Char>>, predicate: (c: Char) -> Boolean) =
+private fun positions(input: List<List<Char>>, position: (c: Char) -> Boolean) =
     input.flatMapIndexed { rowIndex, row ->
         row.mapIndexedNotNull { colIndex, char ->
-            if (predicate(char)) {
+            if (position(char)) {
                 rowIndex to colIndex
             } else {
                 null
