@@ -3,15 +3,15 @@ package day11
 import readFileLines
 
 fun main() {
-    val monkeys1 = readFileLines(11).mapInput()
-    println(part1(monkeys1))
-    val monkeys2 = readFileLines(11).mapInput()
-    println(part2(monkeys2))
+    val input = readFileLines(11)
+
+    println(part1(input))
+    println(part2(input))
 }
 
-private fun part1(monkeys: List<Monkey>) = monkeyBusiness(monkeys, 20, true)
+private fun part1(input: List<String>) = monkeyBusiness(input.mapInput(), 20, true)
 
-private fun part2(monkeys: List<Monkey>): Long = monkeyBusiness(monkeys, 10000, false)
+private fun part2(input: List<String>): Long = monkeyBusiness(input.mapInput(), 10000, false)
 
 private fun monkeyBusiness(monkeys: List<Monkey>, times: Int, divideByThree: Boolean): Long {
     val initialModulo = if (divideByThree) 3L else 1L
