@@ -12,3 +12,12 @@ fun readFileCharMatrix(day: Int): List<List<Char>> =
     readFileMatrix(day).map { line -> line.map { it.first() } }
 
 fun <T> List<List<T>>.transpose() = List(this[0].size) { i -> List(this.size) { j -> this[j][i] } }
+
+fun Int.inRange(min: Int, max: Int) =
+    if (this < min) {
+        min
+    } else if (this > max) {
+        max
+    } else {
+        this
+    }

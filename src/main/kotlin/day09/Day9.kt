@@ -1,5 +1,6 @@
 package day09
 
+import inRange
 import readFileLines
 import kotlin.math.abs
 
@@ -45,11 +46,4 @@ private data class Position(var x: Int, var y: Int) {
     operator fun plus(o: Position) = Position(this.x + o.x, this.y + o.y)
 }
 
-private fun Int.inRange(min: Int, max: Int) =
-    if (this < min) {
-        min
-    } else if (this > max) {
-        max
-    } else {
-        this
-    }
+
