@@ -45,5 +45,3 @@ private fun tailNumPositions(input: List<String>, ropeLength: Int): Int {
 private data class Position(var x: Int, var y: Int) {
     operator fun plus(o: Position) = Position(this.x + o.x, this.y + o.y)
 }
-
-
