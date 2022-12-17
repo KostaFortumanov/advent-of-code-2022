@@ -1,11 +1,10 @@
 package day16
 
 import readFileLines
-import kotlin.system.measureTimeMillis
 
 fun main() {
     println(part1())
-    println(measureTimeMillis { part2() })
+    println(part2())
 }
 
 private fun part1() = traverse(30)
